@@ -1,18 +1,18 @@
 #!/bin/bash
 input_file="file.txt"
 
-# Using awk to generate results based on conditions
-echo "people older than 23 are:"
-awk '{if ($3>23) print $0}' file.txt
+#Searching a word in the file using grep
+echo "Enter the word you want to search"
+read word
+grep -i $word file.txt
 
+#Replacing the word using sed
+echo "Enter the word you want to replace with ${word}"
+read replace
+sed "s/$word/$replace/" file.txt
 
-#grep to find a particular pattern of character
-echo "Enter name:"
-read name
-grep $name file.txt
+echo " "
 
-
-#sed cmd is used to replace a text in a file.
-echo ""
-echo "replacing 'manjari' with 'abc'"
-sed 's/what/abc/' file.txt
+#Applying conditions on text file with awk
+echo "Splitting sentences based on the space"
+awk '{print $1, $2, $3, $10}' file.txt
